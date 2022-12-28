@@ -7,6 +7,7 @@ import { Spacer } from "../../../components/spacer/SpacerComponent"
 import { Text } from "../../../components/typography/TextComponent"
 
 import { RestaurantCard, RestaurantCardCover, Info, Section, SectionEnd, Rating, Icon, Address } from "./RestaurantInfoCard.Styles"
+import { Favourite } from "../../../components/favourites/FavouriteComponent"
 
 function RestaurantInfoCard({ restaurant = {} }) {
 	const {
@@ -24,6 +25,7 @@ function RestaurantInfoCard({ restaurant = {} }) {
 
 	return (
 		<RestaurantCard elevation={5}>
+			<Favourite restaurant={restaurant} />
 			<RestaurantCardCover key={name} source={{ uri: photos[0] }} />
 			<Info>
 				<Text variant="label">{name}</Text>
