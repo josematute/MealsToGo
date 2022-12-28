@@ -7,7 +7,7 @@ import { Spacer } from "../../../components/spacer/SpacerComponent"
 import RestaurantInfoCard from "../components/RestaurantInfoCard"
 import { SafeArea } from "../../../components/utility/SafeAreaComponent"
 import { RestaurantsContext } from "../../../services/restaurants/restaurantsContext"
-import { Search } from "../../../components/searchComponent"
+import { Search } from "../components/searchComponent"
 
 const RestaurantList = styled(FlatList).attrs({
 	contentContainerStyle: {

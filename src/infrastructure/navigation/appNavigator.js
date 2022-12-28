@@ -26,7 +26,8 @@ const createScreenOptions = ({ route }) => {
 				"display": "flex"
 			},
 			null
-		]
+		],
+		headerShown: false
 	}
 }
 
