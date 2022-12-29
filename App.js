@@ -3,13 +3,8 @@ import { ThemeProvider } from "styled-components"
 import { theme } from "./src/infrastructure/theme"
 import { useFonts as useOswald, Oswald_400Regular } from "@expo-google-fonts/oswald"
 import { useFonts as useLato, Lato_400Regular } from "@expo-google-fonts/lato"
-import { RestaurantsContextProvider } from "./src/services/restaurants/restaurantsContext"
-import { LocationContextProvider } from "./src/services/location/locationContext"
 import { Navigation } from "./src/infrastructure/navigation"
-import { FavouritesContextProvider } from "./src/services/favourites/FavouritesContext"
 import { initializeApp } from "firebase/app"
-import { getAuth, onAuthStateChanged, signInWithEmailAndPassword } from "firebase/auth"
-import { useEffect, useState } from "react"
 import { AuthenticationContextProvider } from "./src/services/authentication/AuthenticationContext"
 
 // Initialize Firebase
@@ -34,19 +29,11 @@ export default function App() {
 
 	if (!oswaldLoaded || !latoLoaded) return null
 
-	// if (!isAuthenticated) return null
-
 	return (
 		<>
 			<ThemeProvider theme={theme}>
 				<AuthenticationContextProvider>
-					<FavouritesContextProvider>
-						<LocationContextProvider>
-							<RestaurantsContextProvider>
-								<Navigation />
-							</RestaurantsContextProvider>
-						</LocationContextProvider>
-					</FavouritesContextProvider>
+					<Navigation />
 				</AuthenticationContextProvider>
 			</ThemeProvider>
 			<ExpoStatusBar style="auto"></ExpoStatusBar>
