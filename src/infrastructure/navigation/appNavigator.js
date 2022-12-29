@@ -38,11 +38,9 @@ const Settings = () => (
 )
 
 export const AppNavigator = () => (
-	<NavigationContainer>
-		<Tab.Navigator screenOptions={createScreenOptions}>
-			<Tab.Screen name="Restaurants" component={RestaurantsNavigator} />
-			<Tab.Screen name="Map" component={MapScreen} />
-			<Tab.Screen name="Settings" component={Settings} />
-		</Tab.Navigator>
-	</NavigationContainer>
+	<Tab.Navigator screenOptions={createScreenOptions}>
+		<Tab.Screen name="Restaurants" component={RestaurantsNavigator} />
+		<Tab.Screen name="Map" component={MapScreen} />
+		<Tab.Screen name="Settings" component={Settings} />
+	</Tab.Navigator>
 )
