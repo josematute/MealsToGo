@@ -12,6 +12,7 @@ export const LoginScreen = ({ navigation }) => {
 	return (
 		<AccountBackground>
 			<AccountCover />
+
 			<Title>Meals To Go</Title>
 			<AccountContainer>
 				<AuthInput

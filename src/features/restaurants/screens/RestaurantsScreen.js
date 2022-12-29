@@ -10,13 +10,8 @@ import { RestaurantsContext } from "../../../services/restaurants/restaurantsCon
 import { Search } from "../components/searchComponent"
 import { FavouritesBar } from "../../../components/favourites/FavouritesBarComponent"
 import { FavouritesContext } from "../../../services/favourites/FavouritesContext"
-import { Text } from "../../../components/typography/TextComponent"
-
-const RestaurantList = styled(FlatList).attrs({
-	contentContainerStyle: {
-		padding: 16
-	}
-})``
+import { RestaurantList } from "../../settings/components/RestaurantListStyles"
+import { FadeInView } from "../../../components/animations/FadeAnimation"
 
 const Loading = styled(ActivityIndicator)`
 	margin-left: -25px;
@@ -28,7 +23,7 @@ const LoadingContainer = styled.View`
 `
 
 export const RestaurantsScreen = ({ navigation }) => {
-	const { isLoading, error, restaurants } = useContext(RestaurantsContext)
+	const { isLoading, restaurants } = useContext(RestaurantsContext)
 	const { favourites } = useContext(FavouritesContext)
 	const [isToggled, setIsToggled] = useState(false)
 
@@ -42,13 +37,16 @@ export const RestaurantsScreen = ({ navigation }) => {
 				)}
 				<Search isFavouriteToggled={isToggled} onFavouriteToggle={() => setIsToggled(!isToggled)} />
 				{isToggled && <FavouritesBar favourites={favourites} onNavigate={navigation.navigate} />}
+
 				<RestaurantList
 					data={restaurants}
 					renderItem={({ item }) => {
 						return (
 							<TouchableOpacity onPress={() => navigation.navigate("RestaurantDetail", { restaurant: item })}>
 								<Spacer position="bottom" size="large">
-									<RestaurantInfoCard restaurant={item} />
+									<FadeInView>
+										<RestaurantInfoCard restaurant={item} />
+									</FadeInView>
 								</Spacer>
 							</TouchableOpacity>
 						)
