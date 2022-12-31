@@ -27,7 +27,7 @@ export const SettingsScreen = ({ navigation }) => {
 
 	useFocusEffect(
 		useCallback(() => {
-			getProfilePicture(user)
+			if (user) getProfilePicture(user)
 		}, [user])
 	)
 
